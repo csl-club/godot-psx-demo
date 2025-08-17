@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cejoq77dk4fl8"]
+
+[ext_resource type="FontFile" uid="uid://dj40bvg4trn7t" path="res://assets/font/Libre_Franklin/LibreFranklin-VariableFont_wght.ttf" id="1_ojuyr"]
+[ext_resource type="Script" uid="uid://dmschgtpjkj7v" path="res://src/ui/game_ui.gd" id="1_untyq"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -263.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_untyq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 28.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SheetLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 321.0
+offset_bottom = 76.0
+theme_override_fonts/normal_font = ExtResource("1_ojuyr")
+text = "SHEETS"

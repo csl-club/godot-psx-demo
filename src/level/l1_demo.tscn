@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://oxt22xj44al4"]
+
+[ext_resource type="PackedScene" uid="uid://dy1sm886cwh0e" path="res://src/entity/player.tscn" id="1_5h0kp"]
+[ext_resource type="PackedScene" uid="uid://cejoq77dk4fl8" path="res://src/ui/GameUI.tscn" id="1_5k8v5"]
+[ext_resource type="PackedScene" uid="uid://cw0wfet77adhe" path="res://src/level/l1_town.tscn" id="1_26fto"]
+[ext_resource type="Script" uid="uid://bdwly5hydxx8f" path="res://src/level/game_scene.gd" id="1_fyejw"]
+[ext_resource type="PackedScene" uid="uid://5w1qyuna6d8u" path="res://src/entity/enemy.tscn" id="5_knh7h"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5h0kp"]
+sky_top_color = Color(0.144119, 0.223476, 0.374136, 1)
+sky_horizon_color = Color(0.0625028, 0.109271, 0.19822, 1)
+sky_cover_modulate = Color(0.164706, 0.168627, 0.188235, 1)
+ground_bottom_color = Color(0.0327392, 0.0238974, 0.0155985, 1)
+ground_horizon_color = Color(0.093225, 0.113379, 0.167586, 1)
+energy_multiplier = 0.8
+
+[sub_resource type="Sky" id="Sky_26fto"]
+sky_material = SubResource("ProceduralSkyMaterial_5h0kp")
+
+[sub_resource type="Environment" id="Environment_5k8v5"]
+background_mode = 2
+sky = SubResource("Sky_26fto")
+tonemap_mode = 3
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.38186, 0.475161, 0.798236, 1)
+fog_light_energy = 0.2
+fog_density = 0.0837
+
+[node name="L1Demo" type="Node3D"]
+script = ExtResource("1_fyejw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.885394, -0.426288, 0.185355, 0, 0.398749, 0.91706, -0.464842, 0.811959, -0.35305, 0, 0, 0)
+visible = false
+light_color = Color(0.473976, 0.473976, 0.473976, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5k8v5")
+
+[node name="GameUI" parent="." instance=ExtResource("1_5k8v5")]
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="L1Town" parent="." instance=ExtResource("1_26fto")]
+
+[node name="Player3D" parent="." instance=ExtResource("1_5h0kp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06306, 1.48651, 0.118578)
+
+[node name="Enemy" parent="." instance=ExtResource("5_knh7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34685, 1.81156, 8.95157)
+visible = false

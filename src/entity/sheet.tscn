@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtmbsmmhcsnh4"]
+
+[ext_resource type="Script" uid="uid://cynf63bt2o44u" path="res://src/entity/entity_sheet.gd" id="1_gcfur"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ojdil"]
+data = PackedVector3Array(-0.18, 0.25, 0.005, 0.18, 0.25, 0.005, -0.18, -0.25, 0.005, 0.18, 0.25, 0.005, 0.18, -0.25, 0.005, -0.18, -0.25, 0.005, 0.18, 0.25, -0.005, -0.18, 0.25, -0.005, 0.18, -0.25, -0.005, -0.18, 0.25, -0.005, -0.18, -0.25, -0.005, 0.18, -0.25, -0.005, 0.18, 0.25, 0.005, 0.18, 0.25, -0.005, 0.18, -0.25, 0.005, 0.18, 0.25, -0.005, 0.18, -0.25, -0.005, 0.18, -0.25, 0.005, -0.18, 0.25, -0.005, -0.18, 0.25, 0.005, -0.18, -0.25, -0.005, -0.18, 0.25, 0.005, -0.18, -0.25, 0.005, -0.18, -0.25, -0.005, 0.18, 0.25, 0.005, -0.18, 0.25, 0.005, 0.18, 0.25, -0.005, -0.18, 0.25, 0.005, -0.18, 0.25, -0.005, 0.18, 0.25, -0.005, -0.18, -0.25, 0.005, 0.18, -0.25, 0.005, -0.18, -0.25, -0.005, 0.18, -0.25, 0.005, 0.18, -0.25, -0.005, -0.18, -0.25, -0.005)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okuqm"]
+albedo_color = Color(0.831714, 0.855536, 0.921572, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gcfur"]
+material = SubResource("StandardMaterial3D_okuqm")
+size = Vector3(0.36, 0.5, 0.01)
+
+[node name="Sheet" type="StaticBody3D"]
+script = ExtResource("1_gcfur")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_ojdil")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gcfur")
+skeleton = NodePath("")
