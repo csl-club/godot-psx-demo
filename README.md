@@ -1,6 +1,8 @@
 # godot-psx-demo
 A Demo of a PSX-Style Godot game!
 
+Check it out on (itch.io)[https://oczi.itch.io/godot-psx-demo]!
+
 # TODO
 - Fix web build: camera is bugged and click is not detected as well
 - Add church textures
